@@ -10,7 +10,7 @@ root.title("Main Window")
 root.geometry("800x800")
 root.resizable(width=False, height=False)
 
-
+global sixth_label
 
 
 img = itk.PhotoImage(file = "pics.png")
@@ -39,6 +39,23 @@ def on_button_click():
     sixth_label = tk.Label(second_page, image=img1)
     
     sixth_label.pack(fill="both", expand=True)
+
+def on_button_click():
+    second_page = tk.Toplevel(root)
+    second_page.title("Sign to text translator")
+    second_page.geometry("800x800")
+
+    sixth_label = tk.Label(second_page, image=img1)
+    sixth_label.place(x = 0, y = 0)
+    
+    camera_button = tk.Button(second_page, text="Open Camera", command=on_camera_button_click)
+    camera_button.pack()
+
+    text1 = tk.Text(second_page, height=30, width=30, bg='white')
+    text1.pack(pady=50, anchor='ne')
+    
+    third_page_button = tk.Button(second_page, text="Go to Text to sign converter", command=on_third_page_button_click, bg="lightyellow")
+    third_page_button.pack()
 
     
     
@@ -81,7 +98,7 @@ def on_third_page_button_click():
     my_list.pack(side=tk.LEFT, fill=tk.BOTH)
         
     scrollbar.config(command=my_list.yview)
-    
+def sixth_label():
     third_page_button = tk.Button(sixth_label, text="Go to Text to sign converter", command=on_third_page_button_click, bg="lightyellow")
     third_page_button.pack()
 
